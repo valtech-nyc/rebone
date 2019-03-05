@@ -1,1 +1,5 @@
-export Loader from 'src/loader';
+const loader = require('./src/loader');
+
+module.exports = {
+    loader
+};

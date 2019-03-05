@@ -26,9 +26,9 @@ app.collections = app.collections || {};
 
 // Load component files
 export const requireAll = (r) => { r.keys().forEach(r); };
-requireAll(require.context('./components/', true, /\.view\.js$/));
-requireAll(require.context('./components/', true, /\.model\.js$/));
-requireAll(require.context('./components/', true, /\.collection\.js$/));
+requireAll(require.context(`${__DIR__}/components/`, true, /\.view\.js$/));
+requireAll(require.context(`${__DIR__}/components/`, true, /\.model\.js$/));
+requireAll(require.context(`${__DIR__}/components/`, true, /\.collection\.js$/));
 
 // Override template delimiters to avoid server interpolation conflicts
 _underscore.templateSettings = {
