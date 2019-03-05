@@ -1,5 +1,5 @@
 import { View } from 'backbone';
-import { _, app, uuid } from '../index';
+import { _, app, uuid } from '../loader';
 import $ from 'jquery';
 import { store } from '../store/AppStore';
 import dispatchToProps from '../store/dispatchToProps';

@@ -3,7 +3,7 @@ import thunk from 'redux-thunk';
 import { notifyViews } from './middleware';
 
 /**
- * Initialize the redux store. Reducers are loaded in the index.js loader file.
+ * Initialize the redux store. Reducers are loaded in the loader.js loader file.
  * @type {any}
  */
 export const store = createStore(
