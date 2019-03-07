@@ -2,11 +2,11 @@
   "name": "rebone",
   "version": "0.0.1",
   "description": "Backbone with redux and react-like properties",
-  "main": "index.js",
+  "main": "lib/index.js",
   "author": "",
   "license": "ISC",
   "scripts": {
-    "transpile": "@babel src -d dist --copy-files"
+    "transpile": "@babel src -d lib --copy-files"
   },
   "dependencies": {
     "backbone": "^1.3.3",
