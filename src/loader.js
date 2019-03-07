@@ -19,16 +19,11 @@ if (debug !== 'true') {
 }
 
 Backbone.$ = jQuery;
+const $ = Backbone.$;
 export const app = app || {};
 app.views = app.views || {};
 app.models = app.models || {};
 app.collections = app.collections || {};
-
-// Load component files
-export const requireAll = (r) => { r.keys().forEach(r); };
-requireAll(require.context(`${__DIR__}/components/`, true, /\.view\.js$/));
-requireAll(require.context(`${__DIR__}/components/`, true, /\.model\.js$/));
-requireAll(require.context(`${__DIR__}/components/`, true, /\.collection\.js$/));
 
 // Override template delimiters to avoid server interpolation conflicts
 _underscore.templateSettings = {
@@ -52,7 +47,7 @@ export const _ = { ..._underscore };
  * @returns {{init: Function}}
  * @constructor
  */
-const Loader = () => {
+export const Loader = () => {
     let components = null;
     let view = '';
     let model = '';
@@ -141,9 +136,3 @@ const Loader = () => {
         viewInstances: viewsInstances
     };
 };
-
-// // Starting the application
-// window.loader = new Loader();
-// window.loader.init();
-
-export default Loader;
