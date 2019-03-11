@@ -81,6 +81,7 @@ export class ComponentView extends View {
     appLoaded() {
         const state = store.getState();
         if (!this.loaded && state.app && state.app.loaded) {
+            this.loaded = true;
             this.handleMapDispatchToProps();
 
             // Check if there is view-specific logic to execute when the store is fully loaded
@@ -88,7 +89,6 @@ export class ComponentView extends View {
             if (typeof this.onAppReady === 'function') {
                 this.onAppReady(store);
             }
-            this.loaded = true;
         }
     }
 
