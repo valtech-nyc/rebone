@@ -1,6 +1,6 @@
 {
   "name": "rebone",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "Backbone with redux and react-like properties",
   "main": "lib/index.js",
   "author": "",
