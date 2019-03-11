@@ -1,3 +1,22 @@
+# Setup
+Rebone will need you to manually import your components (views, collections, models). In your entry point, add the following:
+
+```javascript
+// Load reducers
+import reducers from './reducers/combinedReducers';
+
+// Load component files
+export const requireAll = (r) => { r.keys().forEach(r); };
+requireAll(require.context('./components/', true, /\.view\.js$/));
+requireAll(require.context('./components/', true, /\.model\.js$/));
+requireAll(require.context('./components/', true, /\.collection\.js$/));
+
+import { Loader } from 'rebone';
+Loader().init(reducers);
+```
+
+You may need to update the location of your component folder since the default is set to ./components
+
 # Creating a template
 The system is using mustache as a templating engine, for more information please have a look at https://mustache.github.io/
 
@@ -166,8 +185,7 @@ export class ComponentView extends View {
 Example View:
 
 ```javascript
-import { ComponentView } from '../../globals/Component';
-import { app } from '../../index';
+import { ComponentView, app } from 'rebone';
 import { fetchCollection } from '../../reducers/fetch';
 
 require('./Posts.scss');

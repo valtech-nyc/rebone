@@ -58,8 +58,9 @@ export const Loader = () => {
 
     /**
      * Initializer
+     * @param {object} externalReducers
      */
-    const init = () => {
+    const init = (externalReducers = {}) => {
         Backbone.$ = $;
         components = $('[data-view]').toArray();
         const dataListeners = [];
@@ -121,7 +122,7 @@ export const Loader = () => {
         });
 
         // Load collections into store
-        syncCollections(collectionMap, store, reducers);
+        syncCollections(collectionMap, store, { ...reducers, ...externalReducers});
 
         // Register collections as data listeners (models TBD)
         store.dispatch({ type: 'REGISTER_DATA_LISTENERS', payload: subscriptions});
