@@ -11,7 +11,7 @@ export const notifyViews = store => next => action => {
     store.getState().app.dataListeners.forEach(item => {
         if (action.type.includes(`${item.topic}`)) {
             item.subscriberIds.forEach(subscriberId => {
-                store.dispatch({ type: 'NOTIFY_VIEW', payload: subscriberId });
+                store.dispatch({ type: 'NOTIFY_VIEW', payload: { action: item.topic, subscriberId } });
             });
         }
     });

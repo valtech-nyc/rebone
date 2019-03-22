@@ -27,11 +27,11 @@ export default function setLoaded(state = initialState, action = { type: 'NOOP' 
         case 'APP_LOADED':
             return { ...state, loaded: true };
         case 'REGISTER_DATA_LISTENERS':
-            return { ...state, dataListeners: [...state.dataListeners, ...action.payload] };
+            return { ...state, dataListeners: [...action.payload] };
         case 'NOTIFY_VIEW':
             return { ...state, alertedListeners: [...new Set([...state.alertedListeners, action.payload])] };
         case 'VIEW_ACKNOWLEDGED':
-            return { ...state, alertedListeners: [...new Set([...state.alertedListeners])].filter(item => item !== action.payload) };
+            return { ...state, alertedListeners: [...new Set([...state.alertedListeners])].filter(item => item.subscriberId !== action.payload) };
         default:
             return state;
     }
