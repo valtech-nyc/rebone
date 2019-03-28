@@ -116,14 +116,17 @@ export class ComponentView extends View {
 
             // Check if the current view needs to be notified about the store update
             if (alertedListeners.map(item => item.subscriberId).includes(this.uuid)) {
-                const actionName = alertedListeners.filter(item => item.subscriberId === this.uuid)[0].action;
+                const contextAction = alertedListeners.filter(item => item.subscriberId === this.uuid);
+                const actionName = contextAction[0].action;
+                const actionData = contextAction[0].data;
+
                 store.dispatch(viewAcknowledge(this.uuid));
 
                 // Execute view-specific logic (if provided) before calling render
                 // Define onViewNotified in the view to access this callback and
-                // pass the actionName that resulted in the notification.
+                // pass the action name and data that resulted in the notification.
                 if (typeof this.onViewNotified === 'function') {
-                    this.onViewNotified(actionName);
+                    this.onViewNotified(actionName, actionData);
                 }
 
                 this.render();
