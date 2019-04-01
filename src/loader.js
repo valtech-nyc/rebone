@@ -7,8 +7,23 @@ import { reducers } from './store/combinedReducers';
 export const uuid = require('uuid/v4');
 
 // Disable console logging unless "Debug" is passed as a URL Param
-const urlParams = new URLSearchParams(window.location.search);
-const debug = urlParams.get('Debug');
+const getUrlVars = () => {
+    const vars = {};
+    window.location.href.replace(/[?&]+([^=&]+)=([^&]*)/gi, (m,key,value) => {
+        vars[key] = value;
+    });
+    return vars;
+};
+
+const getUrlParam = (parameter, defaultValue) => {
+    let param = defaultValue;
+    if (window.location.href.indexOf(parameter) > -1){
+        param = getUrlVars()[parameter];
+    }
+    return param;
+};
+
+const debug = getUrlParam('Debug');
 if (debug !== 'true') {
     console = {
         log: () => {},
