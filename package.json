@@ -1,12 +1,30 @@
 {
   "name": "rebone",
-  "version": "0.0.6",
+  "version": "0.0.7",
   "description": "Backbone with redux and react-like properties",
   "main": "lib/index.js",
-  "author": "",
+  "author": "Daryl Ketter",
   "license": "ISC",
   "scripts": {
     "transpile": "@babel src -d lib --copy-files"
+  },
+  "contributors": [
+    { "name" : "Federico Orlandau", 
+      "email" : "federico.orlandau@gmail.com", 
+      "url" : "https://github.com/fedeorlandau"
+    }
+  ],
+  "keywords": [
+    "rebone",
+    "backbone",
+    "redux",
+    "state",
+    "reducer",
+    "actions"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/valtech-nyc/rebone.git"
   },
   "dependencies": {
     "backbone": "^1.3.3",

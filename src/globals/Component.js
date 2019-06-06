@@ -148,5 +148,10 @@ export class ComponentView extends View {
         this.template = _.template($(`#${templateId}`).html());
     };
 
+    /**
+     * Gets an instance of a template. This usefull when you have more than just one template.
+     * @param {string} templateId
+     */
+    getTemplateInstance = (templateId) => _.template($(`#${templateId}`).html());
 
 }
