@@ -3,7 +3,7 @@
   "version": "0.0.7",
   "description": "Backbone with redux and react-like properties",
   "main": "lib/index.js",
-  "author": "Daryl Ketter",
+  "author": "Daryl Keeter",
   "license": "ISC",
   "scripts": {
     "transpile": "@babel src -d lib --copy-files"
