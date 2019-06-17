@@ -182,6 +182,10 @@ export class ComponentView extends View {
      */
     getTemplateInstance = (templateId) => _.template($(`#${templateId}`).html());
 
+    /**
+     * Export underscore instance.
+     */
+    _ = _;
 
 }
 
